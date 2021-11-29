@@ -1,6 +1,6 @@
-package com.okta.developer.postgresql.service;
+package com.example.developer.postgresql.service;
 
-import com.okta.developer.postgresql.entities.Review;
+import com.example.developer.postgresql.entities.Review;
 
 import javax.validation.constraints.NotNull;
 

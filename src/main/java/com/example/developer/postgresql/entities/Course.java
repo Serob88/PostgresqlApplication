@@ -1,4 +1,4 @@
-package com.okta.developer.postgresql.entities;
+package com.example.developer.postgresql.entities;
 
 
 import lombok.AllArgsConstructor;

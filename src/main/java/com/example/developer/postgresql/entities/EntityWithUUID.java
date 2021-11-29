@@ -1,4 +1,4 @@
-package com.okta.developer.postgresql.entities;
+package com.example.developer.postgresql.entities;
 
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import org.hibernate.annotations.Type;

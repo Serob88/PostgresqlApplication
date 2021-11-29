@@ -1,9 +1,10 @@
-package com.okta.developer.postgresql.service;
+package com.example.developer.postgresql.service.impl;
 
-import com.okta.developer.postgresql.dao.TeacherDAO;
-import com.okta.developer.postgresql.entities.Review;
-import com.okta.developer.postgresql.entities.Teacher;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.developer.postgresql.entities.Review;
+import com.example.developer.postgresql.entities.Teacher;
+import com.example.developer.postgresql.service.TeacherService;
+import com.example.developer.postgresql.dao.TeacherRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,14 +16,10 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Service
-public class SimpleTeacherService implements TeacherService {
+@AllArgsConstructor
+public class TeacherServiceImpl implements TeacherService {
 
-    private final TeacherDAO teacherDAO;
-
-    @Autowired
-    public SimpleTeacherService(TeacherDAO teacherDAO) {
-        this.teacherDAO = teacherDAO;
-    }
+    private final TeacherRepository teacherRepository;
 
     @Override
     @Transactional(isolation = Isolation.SERIALIZABLE)
@@ -30,7 +27,7 @@ public class SimpleTeacherService implements TeacherService {
         Objects.requireNonNull(teacherID);
         Objects.requireNonNull(review);
 
-        Teacher teacher = teacherDAO
+        Teacher teacher = teacherRepository
                 .findById(UUID.fromString(teacherID))
                 .orElseThrow(() -> new EntityNotFoundException(teacherID));
 
@@ -42,7 +39,7 @@ public class SimpleTeacherService implements TeacherService {
 
         teacher.getReviews().add(review);
 
-        teacherDAO.save(teacher);
+        teacherRepository.save(teacher);
 
     }
 }

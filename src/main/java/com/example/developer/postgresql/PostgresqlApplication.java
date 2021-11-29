@@ -1,4 +1,4 @@
-package com.okta.developer.postgresql;
+package com.example.developer.postgresql;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,6 +11,5 @@ public class PostgresqlApplication {
     public static void main(String[] args) {
         SpringApplication.run(PostgresqlApplication.class, args);
     }
-
 
 }

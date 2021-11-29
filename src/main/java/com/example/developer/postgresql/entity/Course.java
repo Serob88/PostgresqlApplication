@@ -1,4 +1,4 @@
-package com.example.developer.postgresql.entities;
+package com.example.developer.postgresql.entity;
 
 
 import lombok.AllArgsConstructor;
@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Course extends EntityWithUUID {
+public class Course extends BaseEntity {
 
     private String name;
     private int workload;

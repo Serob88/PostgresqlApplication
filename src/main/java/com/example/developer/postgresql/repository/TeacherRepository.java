@@ -1,6 +1,6 @@
-package com.example.developer.postgresql.dao;
+package com.example.developer.postgresql.repository;
 
-import com.example.developer.postgresql.entities.Teacher;
+import com.example.developer.postgresql.entity.Teacher;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.UUID;

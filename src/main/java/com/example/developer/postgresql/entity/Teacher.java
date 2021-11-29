@@ -1,4 +1,4 @@
-package com.example.developer.postgresql.entities;
+package com.example.developer.postgresql.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +15,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Teacher extends EntityWithUUID {
+public class Teacher extends BaseEntity {
 
     private String name;
     private String pictureURL;

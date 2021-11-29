@@ -1,4 +1,4 @@
-package com.example.developer.postgresql.entities;
+package com.example.developer.postgresql.entity;
 
 
 import lombok.AllArgsConstructor;

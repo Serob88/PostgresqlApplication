@@ -1,9 +1,9 @@
 package com.example.developer.postgresql.service.impl;
 
-import com.example.developer.postgresql.entities.Review;
-import com.example.developer.postgresql.entities.Teacher;
+import com.example.developer.postgresql.entity.Review;
+import com.example.developer.postgresql.entity.Teacher;
+import com.example.developer.postgresql.repository.TeacherRepository;
 import com.example.developer.postgresql.service.TeacherService;
-import com.example.developer.postgresql.dao.TeacherRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -23,17 +23,17 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     @Transactional(isolation = Isolation.SERIALIZABLE)
-    public void addReview(String teacherID, Review review) {
-        Objects.requireNonNull(teacherID);
+    public void addReview(String teacherid, Review review) {
+        Objects.requireNonNull(teacherid);
         Objects.requireNonNull(review);
 
         Teacher teacher = teacherRepository
-                .findById(UUID.fromString(teacherID))
-                .orElseThrow(() -> new EntityNotFoundException(teacherID));
+                .findById(UUID.fromString(teacherid))
+                .orElseThrow(() -> new EntityNotFoundException(teacherid));
 
         review.setDate(LocalDate.now());
 
-        if(teacher.getReviews() == null){
+        if (teacher.getReviews() == null) {
             teacher.setReviews(new ArrayList<>());
         }
 
@@ -41,5 +41,11 @@ public class TeacherServiceImpl implements TeacherService {
 
         teacherRepository.save(teacher);
 
+    }
+
+    @Override
+    public Teacher findById(String teacherID) {
+        return teacherRepository.findById(UUID.fromString(teacherID))
+                .orElseThrow(() -> new EntityNotFoundException(teacherID));
     }
 }

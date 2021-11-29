@@ -1,4 +1,4 @@
-package com.example.developer.postgresql.entities;
+package com.example.developer.postgresql.entity;
 
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import org.hibernate.annotations.Type;
@@ -13,12 +13,12 @@ import java.util.UUID;
 @TypeDefs({
         @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 })
-public class EntityWithUUID {
+public class BaseEntity {
     @Id
     @Type(type = "pg-uuid")
     private UUID id;
 
-    public EntityWithUUID() {
+    public BaseEntity() {
         this.id = UUID.randomUUID();
     }
 }

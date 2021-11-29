@@ -4,14 +4,15 @@ import com.example.developer.postgresql.entity.Review;
 import com.example.developer.postgresql.entity.Teacher;
 
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 
 public interface TeacherService {
 
     /**
-     *
-     * @param teacherID
-     * @param review
+     *Add review in teacher.
+     * @param teacherID teacher id
+     * @param review {@link Review}
      * @throws javax.persistence.EntityNotFoundException
      */
     void addReview(@NotNull String teacherID, @NotNull Review review);
@@ -22,5 +23,26 @@ public interface TeacherService {
      * @param teacherId teacher id
      * @return Teacher {@link Teacher}
      */
-    Teacher findById(String teacherId);
+    Teacher findById(@NotNull String teacherId);
+
+    /**
+     * Find all teachers.
+     * @return Teacher {@link Teacher}
+     */
+    List<Teacher> findAll();
+
+    /**
+     * Remove teacher by id.
+     *
+     * @param teacherId teacher id
+     */
+    void delete(@NotNull String teacherId);
+
+    /**
+     * Creat teacher.
+     *
+     * @param teacher {@link Teacher}
+     * @return Teacher
+     */
+    Teacher creat(@NotNull Teacher teacher);
 }

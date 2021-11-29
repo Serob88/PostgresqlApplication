@@ -11,10 +11,10 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import java.util.List;
 
-@Entity
 @Data
-@AllArgsConstructor
+@Entity
 @NoArgsConstructor
+@AllArgsConstructor
 public class Teacher extends BaseEntity {
 
     private String name;

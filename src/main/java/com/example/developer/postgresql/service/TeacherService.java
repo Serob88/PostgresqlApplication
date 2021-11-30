@@ -3,6 +3,7 @@ package com.example.developer.postgresql.service;
 import com.example.developer.postgresql.entity.Review;
 import com.example.developer.postgresql.entity.Teacher;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
@@ -45,4 +46,6 @@ public interface TeacherService {
      * @return Teacher
      */
     Teacher creat(@NotNull Teacher teacher);
+
+    List<Teacher> findByAuthor(@NotBlank String author);
 }

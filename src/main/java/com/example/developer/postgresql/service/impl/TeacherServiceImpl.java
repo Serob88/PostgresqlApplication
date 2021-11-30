@@ -65,9 +65,11 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public Teacher creat(Teacher teacher) {
-
-        log.info("teacher: {}", teacher);
-
         return teacherRepository.save(teacher);
+    }
+
+    @Override
+    public List<Teacher> findByAuthor(String author) {
+        return teacherRepository.findByReviewsAuthor(author);
     }
 }

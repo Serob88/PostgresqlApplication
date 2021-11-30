@@ -66,7 +66,7 @@ public class TeacherController {
     }
 
     @GetMapping("/teachers/author/{author}")
-    public ResponseEntity<List<Teacher>> findByAuthor (@PathVariable String author) {
+    public ResponseEntity<List<Teacher>> findByAuthor(@PathVariable String author) {
 
         log.info("Trying to find teacher by author: {}", author);
 

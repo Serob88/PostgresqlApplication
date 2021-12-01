@@ -1,5 +1,7 @@
 package com.example.developer.postgresql.entity;
 
+import java.io.Serializable;
+import java.time.LocalDate;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,14 +12,11 @@ import java.util.List;
 import java.util.UUID;
 
 @Data
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class TeacherInfo extends BaseEntity{
+public class TeacherInfo implements Serializable {
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Teacher teacher;
-
+    private LocalDate date;
     @Type(type = "jsonb")
     @Column(columnDefinition = "jsonb")
     @Basic(fetch = FetchType.LAZY)

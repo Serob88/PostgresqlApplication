@@ -3,6 +3,7 @@ package com.example.developer.postgresql.service;
 import com.example.developer.postgresql.entity.Review;
 import com.example.developer.postgresql.entity.Teacher;
 
+import com.example.developer.postgresql.entity.TeacherInfo;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -16,7 +17,7 @@ public interface TeacherService {
      * @param review {@link Review}
      * @throws javax.persistence.EntityNotFoundException
      */
-    void addReview(@NotNull String teacherID, @NotNull Review review);
+    void addReview(@NotNull String teacherID, @NotNull TeacherInfo info);
 
     /**
      * Find teacher by id.

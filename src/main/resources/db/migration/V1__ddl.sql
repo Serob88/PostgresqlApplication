@@ -17,13 +17,5 @@ CREATE TABLE teacher
     PRIMARY KEY (id)
 );
 
-CREATE TABLE teacher_info
-(
-    id      UUID NOT NULL,
-    reviews jsonb,
-    addresses    jsonb,
-    PRIMARY KEY (id)
-);
-
 ALTER TABLE course
     ADD CONSTRAINT fk_course_teacher FOREIGN KEY (teacher_id) REFERENCES teacher;

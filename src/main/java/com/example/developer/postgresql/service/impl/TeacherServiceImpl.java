@@ -2,6 +2,7 @@ package com.example.developer.postgresql.service.impl;
 
 import com.example.developer.postgresql.entity.Review;
 import com.example.developer.postgresql.entity.Teacher;
+import com.example.developer.postgresql.entity.TeacherInfo;
 import com.example.developer.postgresql.repository.TeacherRepository;
 import com.example.developer.postgresql.service.TeacherService;
 import lombok.AllArgsConstructor;
@@ -27,21 +28,21 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     @Transactional(isolation = Isolation.SERIALIZABLE)
-    public void addReview(String teacherid, Review review) {
+    public void addReview(String teacherid, TeacherInfo info) {
         Objects.requireNonNull(teacherid);
-        Objects.requireNonNull(review);
+        Objects.requireNonNull(info);
 
         Teacher teacher = teacherRepository
                 .findById(UUID.fromString(teacherid))
                 .orElseThrow(() -> new EntityNotFoundException(teacherid));
 
-        review.setDate(LocalDate.now());
+        info.setDate(LocalDate.now());
 
         if (teacher.getInfos() == null) {
             teacher.setInfos(new ArrayList<>());
         }
 
-//        teacher.getInfos()..add(review);
+        teacher.getInfos().add(info);
 
         teacherRepository.save(teacher);
 

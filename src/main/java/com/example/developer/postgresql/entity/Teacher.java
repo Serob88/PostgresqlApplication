@@ -20,7 +20,7 @@ public class Teacher extends BaseEntity {
 
     @Type(type = "jsonb")
     @Column(columnDefinition = "jsonb")
-    @OneToMany(fetch = FetchType.LAZY)
+    @Basic(fetch = FetchType.LAZY)
     private List<TeacherInfo> infos;
 
 }

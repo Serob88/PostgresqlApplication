@@ -1,2 +1,2 @@
 ALTER TABLE teacher
-  ADD COLUMN reviews jsonb
+  ADD COLUMN infos jsonb

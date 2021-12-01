@@ -37,11 +37,11 @@ public class TeacherServiceImpl implements TeacherService {
 
         review.setDate(LocalDate.now());
 
-        if (teacher.getReviews() == null) {
-            teacher.setReviews(new ArrayList<>());
+        if (teacher.getInfos() == null) {
+            teacher.setInfos(new ArrayList<>());
         }
 
-        teacher.getReviews().add(review);
+//        teacher.getInfos()..add(review);
 
         teacherRepository.save(teacher);
 

@@ -5,10 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
+import javax.persistence.*;
 import java.util.List;
 
 @Data
@@ -23,7 +20,7 @@ public class Teacher extends BaseEntity {
 
     @Type(type = "jsonb")
     @Column(columnDefinition = "jsonb")
-    @Basic(fetch = FetchType.LAZY)
-    private List<Review> reviews;
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<TeacherInfo> infos;
 
 }

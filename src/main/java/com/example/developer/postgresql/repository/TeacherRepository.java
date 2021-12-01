@@ -11,8 +11,7 @@ import java.util.UUID;
 @Repository
 public interface TeacherRepository extends JpaRepository<Teacher, UUID> {
 
-    @Query(
-            value = "SELECT * FROM teacher t CROSS JOIN jsonb_array_elements(reviews) where value ->> 'author' = :author",
-            nativeQuery = true)
+    @Query(value = "SELECT * FROM teacher t CROSS JOIN jsonb_array_elements(reviews) " +
+            "where value ->> 'author' = :author", nativeQuery = true)
     List<Teacher> findByReviewsAuthor(String author);
 }

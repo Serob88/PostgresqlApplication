@@ -18,7 +18,7 @@ public class Course extends BaseEntity {
     private short rate;
 
     @ManyToOne
-    @JoinColumn(foreignKey = @ForeignKey(name = "fk_course_teacher"))
+    @JoinColumn
     private Teacher teacher;
 
 }

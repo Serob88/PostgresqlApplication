@@ -1,8 +1,7 @@
 package com.example.developer.postgresql.service.impl;
 
-import com.example.developer.postgresql.entity.Review;
 import com.example.developer.postgresql.entity.Teacher;
-import com.example.developer.postgresql.entity.TeacherInfo;
+import com.example.developer.postgresql.model.TeacherDetail;
 import com.example.developer.postgresql.repository.TeacherRepository;
 import com.example.developer.postgresql.service.TeacherService;
 import lombok.AllArgsConstructor;
@@ -12,12 +11,10 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import java.util.function.Supplier;
 
 @Slf4j
 @Service
@@ -28,7 +25,7 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     @Transactional(isolation = Isolation.SERIALIZABLE)
-    public void addReview(String teacherid, TeacherInfo info) {
+    public void addTeacherInfo(String teacherid, TeacherDetail info) {
         Objects.requireNonNull(teacherid);
         Objects.requireNonNull(info);
 
@@ -36,13 +33,8 @@ public class TeacherServiceImpl implements TeacherService {
                 .findById(UUID.fromString(teacherid))
                 .orElseThrow(() -> new EntityNotFoundException(teacherid));
 
-        info.setDate(LocalDate.now());
 
-        if (teacher.getInfos() == null) {
-            teacher.setInfos(new ArrayList<>());
-        }
-
-        teacher.getInfos().add(info);
+        teacher.setDetail(info);
 
         teacherRepository.save(teacher);
 

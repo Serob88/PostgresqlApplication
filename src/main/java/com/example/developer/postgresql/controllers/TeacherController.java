@@ -1,8 +1,7 @@
 package com.example.developer.postgresql.controllers;
 
-import com.example.developer.postgresql.entity.Review;
 import com.example.developer.postgresql.entity.Teacher;
-import com.example.developer.postgresql.entity.TeacherInfo;
+import com.example.developer.postgresql.model.TeacherDetail;
 import com.example.developer.postgresql.service.TeacherService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,12 +19,12 @@ public class TeacherController {
     private final TeacherService teacherService;
 
     @PostMapping("/teachers/{id}/teacher-info")
-    public ResponseEntity<Void> addReview(@RequestBody TeacherInfo info, @PathVariable("id") String teacherID) {
+    public ResponseEntity<Void> addReview(@RequestBody TeacherDetail info, @PathVariable("id") String teacherID) {
 
         log.info("Trying add info: {} in teacher by teacher id: {}", info, teacherID);
 
         try {
-            teacherService.addReview(teacherID, info);
+            teacherService.addTeacherInfo(teacherID, info);
             return ResponseEntity.ok().build();
         } catch (EntityNotFoundException e) {
             return ResponseEntity.notFound().build();

@@ -1,4 +1,4 @@
-package com.example.developer.postgresql.entity;
+package com.example.developer.postgresql.model;
 
 
 import java.io.Serializable;

@@ -1,12 +1,15 @@
 package com.example.developer.postgresql.entity;
 
+import com.example.developer.postgresql.model.TeacherDetail;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
 
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 
 @Data
 @Entity
@@ -21,6 +24,6 @@ public class Teacher extends BaseEntity {
     @Type(type = "jsonb")
     @Column(columnDefinition = "jsonb")
     @Basic(fetch = FetchType.LAZY)
-    private List<TeacherInfo> infos;
+    private TeacherDetail detail;
 
 }

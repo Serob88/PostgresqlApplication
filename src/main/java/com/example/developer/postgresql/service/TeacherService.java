@@ -1,9 +1,8 @@
 package com.example.developer.postgresql.service;
 
-import com.example.developer.postgresql.entity.Review;
 import com.example.developer.postgresql.entity.Teacher;
 
-import com.example.developer.postgresql.entity.TeacherInfo;
+import com.example.developer.postgresql.model.TeacherDetail;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -14,10 +13,10 @@ public interface TeacherService {
     /**
      *Add review in teacher.
      * @param teacherID teacher id
-     * @param review {@link Review}
+     * @param info {@link TeacherDetail}
      * @throws javax.persistence.EntityNotFoundException
      */
-    void addReview(@NotNull String teacherID, @NotNull TeacherInfo info);
+    void addTeacherInfo(@NotNull String teacherID, @NotNull TeacherDetail info);
 
     /**
      * Find teacher by id.

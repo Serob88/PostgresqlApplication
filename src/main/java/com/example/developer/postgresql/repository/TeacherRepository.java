@@ -15,3 +15,4 @@ public interface TeacherRepository extends JpaRepository<Teacher, UUID> {
             "where value ->> 'author' = :author", nativeQuery = true)
     List<Teacher> findByReviewsAuthor(String author);
 }
+

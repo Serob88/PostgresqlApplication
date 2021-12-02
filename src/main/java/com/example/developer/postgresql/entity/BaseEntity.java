@@ -5,6 +5,8 @@ import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.util.UUID;
@@ -15,10 +17,10 @@ import java.util.UUID;
 })
 public class BaseEntity {
     @Id
-    @Type(type = "pg-uuid")
-    private UUID id;
+    @GeneratedValue(strategy  = GenerationType.IDENTITY)
+    private String id;
 
     public BaseEntity() {
-        this.id = UUID.randomUUID();
+        this.id = UUID.randomUUID().toString();
     }
 }

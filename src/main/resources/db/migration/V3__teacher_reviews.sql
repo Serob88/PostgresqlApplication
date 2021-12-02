@@ -1,2 +1,2 @@
-ALTER TABLE teacher
-  ADD COLUMN infos jsonb
+-- ALTER TABLE teacher
+--   ADD COLUMN detail jsonb

@@ -73,4 +73,13 @@ public class TeacherController {
         return ResponseEntity.ok(teacherService.findByAuthor(author));
     }
 
+    @PutMapping( "/teachers/id/author/updateAuthor")
+    public ResponseEntity<Teacher> updateByAuthor(@RequestParam String id,
+                                                  @RequestParam String author,
+                                                  @RequestParam String updateAuthor) {
+        log.info("Trying to update teacher reviews author : {}", updateAuthor);
+
+        return ResponseEntity.ok(teacherService.updateTeacher(id, author, updateAuthor));
+    }
+
 }

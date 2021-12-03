@@ -1,7 +1,7 @@
 INSERT INTO teacher
             (id,
              email,
-             NAME, 
+             NAME,
              pictureurl,
              detail)
 VALUES      ( '531e4cdd-bb78-4769-a0c7-cb948a9f1238',

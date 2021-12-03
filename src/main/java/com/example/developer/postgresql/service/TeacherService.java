@@ -45,7 +45,9 @@ public interface TeacherService {
      * @param teacher {@link Teacher}
      * @return Teacher
      */
-    Teacher creat(@NotNull Teacher teacher);
+    Teacher creat(Teacher teacher);
 
     List<Teacher> findByAuthor(@NotBlank String author);
+
+    Teacher updateTeacher(@NotBlank String Id, @NotBlank String author, @NotBlank String updateAuthor);
 }
